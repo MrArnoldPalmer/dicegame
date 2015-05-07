@@ -65,8 +65,13 @@ public class SampleForm extends JFrame {
 
     public void newGame() {
         try {
-            total = Integer.parseInt(JOptionPane.showInputDialog("Enter total betting $"));
-            totalLabel.setText("$" + Integer.toString(total));
+            String input = JOptionPane.showInputDialog(null, "Enter total betting $", "New Game", JOptionPane.OK_CANCEL_OPTION);
+            if(input != null) {
+                total = Integer.parseInt(input);
+                totalLabel.setText("$" + Integer.toString(total));
+            }
+            else
+                System.out.println("cancel pressed");
         }
         catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Enter positive integers only");
