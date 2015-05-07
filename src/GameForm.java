@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by mitchellvaline on 4/30/15.
  */
-public class SampleForm extends JFrame {
+public class GameForm extends JFrame {
     private JButton quitButton;
     private JPanel rootPanel;
     private JButton newGameButton;
@@ -16,22 +16,22 @@ public class SampleForm extends JFrame {
     int total;
 
 
-    public SampleForm() {
-        super("Hello World");
+    public GameForm() {
+        super("Dice Game");
 
         setContentPane(rootPanel);
 
         newGameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                SampleForm.this.newGame();
+                GameForm.this.newGame();
             }
         });
 
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                SampleForm.super.dispose();
+                GameForm.super.dispose();
             }
         });
 
@@ -39,7 +39,7 @@ public class SampleForm extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    SampleForm.this.rollDice(Integer.parseInt(betText.getText()));
+                    GameForm.this.rollDice(Integer.parseInt(betText.getText()));
                 }
                 catch(NumberFormatException e){
                     JOptionPane.showMessageDialog(null, "Enter positive integers only");
